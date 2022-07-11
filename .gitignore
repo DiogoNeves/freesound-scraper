@@ -6,6 +6,7 @@ credentials.json
 __pycache__/
 /.vscode
 /.venv
+/data/
 
 *.DS_Store
 
