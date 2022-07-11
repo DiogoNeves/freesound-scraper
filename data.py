@@ -4,7 +4,7 @@ import datetime
 import csv
 
 # TODO: place this in its own constant file
-MAX_TAGS = 10
+MAX_TAGS = 1
 
 # TODO: Add more of these as they pop up
 TAGS_TO_IGNORE = {
@@ -40,7 +40,8 @@ class SampleData:
                 if not tag.isdigit() and not (tag == '808' or tag == '909' or tag == '707'):
                     processed_tags.append(tag)
 
-        return processed_tags
+        # TODO: Change the code to treat all tags as strings
+        return ["\"{}\"".format(",".join(processed_tags))]
         
     # returns how many samples are in the data array
     def size(self):
