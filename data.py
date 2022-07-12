@@ -27,7 +27,7 @@ TAGS_TO_IGNORE = {
 # provides methods for processing JSON data from freesounds API and keeps it in a stored numpy array
 class SampleData:
     def __init__(self):
-        self.data_array = np.empty(([0, MAX_TAGS + 2]))
+        self.data_array = np.empty(([0, MAX_TAGS + 3]))
 
 
     def __pre_process_tags(self, tags):
@@ -89,7 +89,7 @@ class SampleData:
                 for i in range(MAX_TAGS - tags.shape[0]):
                     tags = np.append(tags, [''])
 
-                features = np.concatenate((file_info, tags))
+                features = np.concatenate((file_info, [query], tags))
                 self.data_array = np.append(self.data_array, [features], axis=0)
         return idx + 1
 
